@@ -1,0 +1,339 @@
+---
+title: "Лабораторная работа №6. Основы интерфейса взаимодействия пользователя с системой Unix на уровне командной строки"
+author: "Сунь Шэнцзе"
+date: "2026-03-19"
+number: "1132254527"
+format:
+  pdf:
+    documentclass: article
+    mainfont: "DejaVu Serif"
+    sansfont: "DejaVu Sans"
+    monofont: "DejaVu Sans Mono"
+    pdf-engine: xelatex
+lang: ru
+---
+
+## 1. Цель работы
+
+Приобретение практических навыков взаимодействия пользователя с системой посредством командной строки.
+
+---
+
+## 2. Порядок выполнения работы и результаты
+
+### 2.1 Определение полного имени домашнего каталога
+
+![](images/lab06_01_pwd.png)
+
+```bash
+pwd
+```
+
+**Результат:**  
+`/home/hhl/work/study/2026-2027/Операционные системы/os-intro/labs/lab06`
+
+---
+
+### 2.2 Работа с каталогом /tmp
+
+#### 2.2.1 Переход в каталог
+
+![](images/lab06_02_cd_tmp.png)
+
+```bash
+cd /tmp
+pwd
+```
+
+---
+
+#### 2.2.2 Просмотр содержимого
+
+![](images/lab06_03_ls_tmp.png)
+
+```bash
+ls
+ls -l
+ls -a
+ls -la
+ls -F
+```
+
+**Пояснение:**
+
+| Команда | Описание |
+|--------|---------|
+| ls | Список файлов |
+| ls -l | Подробный список |
+| ls -a | Скрытые файлы |
+| ls -la | Всё + подробно |
+| ls -F | Типы файлов |
+
+---
+
+#### 2.2.3 Проверка cron
+
+![](images/lab06_04_check_cron.png)
+
+```bash
+ls /var/spool
+```
+
+---
+
+#### 2.2.4 Возврат домой
+
+![](images/lab06_05_return_home.png)
+
+```bash
+cd ~/work/study/2026-2027/Операционные\ системы/os-intro/labs/lab06
+pwd
+ls -l
+```
+
+---
+
+### 2.3 Работа с каталогами
+
+#### Создание каталогов
+
+![](images/lab06_06_mkdir_newdir.png)
+
+```bash
+mkdir newdir
+ls -ld newdir
+```
+
+---
+
+#### Подкаталог
+
+![](images/lab06_07_mkdir_morefun.png)
+
+```bash
+mkdir newdir/morefun
+ls newdir
+```
+
+---
+
+#### Несколько каталогов
+
+![](images/lab06_08_mkdir_three.png)
+
+```bash
+mkdir letters memos misk
+ls
+```
+
+![](images/lab06_09_rmdir_three.png)
+
+```bash
+rmdir letters memos misk
+ls
+```
+
+---
+
+#### Ошибка rm
+
+![](images/lab06_10_rm_newdir.png)
+
+```bash
+rm newdir
+```
+
+Ошибка:
+
+```
+rm: cannot remove 'newdir': Is a directory
+```
+
+---
+
+#### Удаление подкаталога
+
+![](images/lab06_11_rmdir_morefun.png)
+
+```bash
+rmdir newdir/morefun
+ls newdir
+```
+
+---
+
+### 2.4 Рекурсивный вывод
+
+![](images/lab06_12_man_ls_recursive.png)
+
+```bash
+ls -R
+```
+
+---
+
+### 2.5 Сортировка по времени
+
+![](images/lab06_13_man_ls_sort.png)
+
+```bash
+ls -lt
+ls -ltr
+```
+
+---
+
+### 2.6 Изучение команд
+
+#### cd
+
+![](images/lab06_14_man_cd.png)
+
+```bash
+cd ~
+cd ..
+cd -
+```
+
+---
+
+#### pwd
+
+![](images/lab06_15_man_pwd.png)
+
+```bash
+pwd -L
+pwd -P
+```
+
+---
+
+#### mkdir
+
+![](images/lab06_16_man_mkdir.png)
+
+```bash
+mkdir -p dir1/dir2/dir3
+mkdir -m 755 dir
+```
+
+---
+
+#### rmdir
+
+![](images/lab06_17_man_rmdir.png)
+
+```bash
+rmdir -p dir1/dir2/dir3
+```
+
+---
+
+#### rm
+
+![](images/lab06_18_man_rm.png)
+
+```bash
+rm file.txt
+rm -r dir
+rm -rf dir
+```
+
+---
+
+### 2.7 История команд
+
+![](images/lab06_19_history.png)
+
+```bash
+history
+```
+
+![](images/lab06_20_history_modify.png)
+
+```bash
+!1891
+!1891:s/a/F
+```
+
+---
+
+## 3. Ответы на вопросы
+
+**Командная строка** — текстовый интерфейс управления системой.
+
+**Определение пути:**
+```bash
+pwd
+```
+
+**Типы файлов:**
+```bash
+ls -F
+```
+
+**Скрытые файлы:**
+```bash
+ls -a
+ls -la
+```
+
+**Удаление:**
+```bash
+rm file
+rmdir dir
+rm -r dir
+```
+
+**История:**
+```bash
+history
+```
+
+**Модификация:**
+```bash
+!3:s/a/F
+```
+
+**Несколько команд:**
+```bash
+cd /tmp; ls
+mkdir dir && cd dir
+cd bad || echo "error"
+```
+
+**Экранирование:**
+```bash
+touch Мой\ файл.txt
+echo "Цена \$100"
+```
+
+**ls -l:**
+Права, владелец, размер, дата, имя.
+
+**Пути:**
+```bash
+cd /absolute/path
+cd relative/path
+```
+
+**Справка:**
+```bash
+man ls
+ls --help
+```
+
+**Автодополнение:** клавиша Tab
+
+---
+
+## 4. Выводы
+
+- Освоены команды `cd`, `pwd`
+- Изучен `ls`
+- Освоены `mkdir`, `rm`, `rmdir`
+- Работа с `man`
+- Изучена история команд
+- Освоены пути и экранирование
+
+Все задачи выполнены.
