@@ -1,0 +1,132 @@
+---
+title: "Лабораторная работа №7"
+subtitle: "Анализ файловой системы Linux"
+author: "Сунь Шэнцзе"
+institute: "РУДН"
+date: "2026-03-27"
+format:
+  beamer:
+    theme: "Madrid"
+    colortheme: "default"
+    fonttheme: "professionalfonts"
+    toc: false
+    slide-level: 2
+    mainfont: "DejaVu Serif"
+    sansfont: "DejaVu Sans"
+    monofont: "DejaVu Sans Mono"
+    lang: ru
+---
+
+## Цель работы
+
+- Изучение файловой системы Linux  
+- Работа с файлами и каталогами  
+- Изучение прав доступа  
+- Анализ дисковой системы  
+
+---
+
+## Подготовка
+
+![](images/lab07_01_create_directory.png)
+
+```bash
+cd ~/work/.../lab07
+pwd
+```
+
+---
+
+## Работа с файлами
+
+![](images/lab07_02_copy_file.png)
+
+```bash
+cp file dir
+mv file dir
+touch file
+```
+
+- Копирование  
+- Перемещение  
+- Создание файлов  
+
+---
+
+## Работа с каталогами
+
+![](images/lab07_03_create_directory.png)
+
+```bash
+mkdir dir
+mv dir newname
+```
+
+- Создание каталогов  
+- Переименование  
+
+---
+
+## Перемещение и структура
+
+![](images/lab07_08_move_multiple.png)
+
+```bash
+mv file1 file2 dir/
+```
+
+- Перемещение нескольких файлов  
+- Организация структуры  
+
+---
+
+## Права доступа
+
+![](images/lab07_11_chmod_symbolic.png)
+
+```bash
+chmod 744 file
+chmod 755 dir
+```
+
+- Управление доступом  
+- r / w / x  
+
+---
+
+## Анализ системы
+
+![](images/lab07_13_df.png)
+
+```bash
+df -h
+mount
+cat /etc/fstab
+```
+
+- Использование диска  
+- Точки монтирования  
+
+---
+
+## Проверка системы
+
+```bash
+fsck /dev/sda1
+```
+
+- Проверка файловой системы  
+- Исправление ошибок  
+
+---
+
+## Выводы
+
+- Изучена структура Linux  
+- Освоены команды (`cp`, `mv`, `mkdir`)  
+- Изучены права доступа (`chmod`)  
+- Освоены команды анализа (`df`, `mount`)  
+
+---
+
+## Спасибо за внимание!

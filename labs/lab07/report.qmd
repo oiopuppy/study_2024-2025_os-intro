@@ -1,0 +1,241 @@
+---
+title: "Лабораторная работа №7. Анализ файловой системы Linux. Команды для работы с файлами и каталогами"
+author: "Сунь Шэнцзе"
+date: "2026-03-27"
+number: "1132254527"
+format:
+  pdf:
+    documentclass: article
+    mainfont: "DejaVu Serif"
+    sansfont: "DejaVu Sans"
+    monofont: "DejaVu Sans Mono"
+    pdf-engine: xelatex
+lang: ru
+---
+
+## 1. Цель работы
+
+- Ознакомление с файловой системой Linux, её структурой, именами и содержимым каталогов.
+- Приобретение практических навыков по применению команд для работы с файлами и каталогами.
+- Изучение прав доступа и их изменения с помощью команды `chmod`.
+- Получение навыков анализа файловой системы с помощью команд `mount`, `df`, `fsck`.
+
+---
+
+## 2. Порядок выполнения работы и результаты
+
+### 2.1 Подготовка рабочего окружения
+
+#### 2.1.1 Создание рабочей директории
+
+![](images/lab07_01_create_directory.png)
+
+```bash
+cd ~/work/study/2026-2027/Операционные\ системы/os-intro/labs/lab07
+pwd
+```
+
+**Результат:** Создана и активирована рабочая директория.
+
+---
+
+### 2.2 Выполнение операций с файлами и каталогами
+
+#### 2.2.1 Копирование файла
+
+![](images/lab07_02_copy_file.png)
+
+```bash
+cp /usr/include/stdio.h ~/equipment
+ls -l ~/equipment
+```
+
+**Результат:** Файл `stdio.h` скопирован.
+
+---
+
+#### 2.2.2 Создание каталога
+
+![](images/lab07_03_create_directory.png)
+
+```bash
+mkdir ~/ski.plases
+```
+
+**Результат:** Создан каталог `~/ski.plases`.
+
+---
+
+#### 2.2.3 Перемещение файла
+
+![](images/lab07_04_move_file.png)
+
+```bash
+mv ~/equipment ~/ski.plases/
+```
+
+**Результат:** Файл перемещён.
+
+---
+
+#### 2.2.4 Переименование файла
+
+![](images/lab07_05_rename_file.png)
+
+```bash
+mv ~/ski.plases/equipment ~/ski.plases/equiplist
+```
+
+**Результат:** Файл переименован.
+
+---
+
+#### 2.2.5 Создание и копирование файла
+
+![](images/lab07_06_create_and_copy.png)
+
+```bash
+touch ~/abc1
+cp ~/abc1 ~/ski.plases/equiplist2
+```
+
+---
+
+#### 2.2.6 Создание вложенного каталога
+
+![](images/lab07_07_create_subdir.png)
+
+```bash
+mkdir ~/ski.plases/equipment
+```
+
+---
+
+#### 2.2.7 Перемещение нескольких файлов
+
+![](images/lab07_08_move_multiple.png)
+
+```bash
+mv ~/ski.plases/equiplist ~/ski.plases/equiplist2 ~/ski.plases/equipment/
+```
+
+---
+
+#### 2.2.8 Перемещение и переименование каталога
+
+![](images/lab07_09_move_rename_dir.png)
+
+```bash
+mkdir ~/newdir
+mv ~/newdir ~/ski.plases/plans
+```
+
+---
+
+### 2.3 Изменение прав доступа
+
+#### 2.3.1 Создание тестовых файлов
+
+![](images/lab07_10_create_test_files.png)
+
+```bash
+touch australia play my_os feathers
+```
+
+---
+
+#### 2.3.2 Установка прав доступа
+
+![](images/lab07_11_chmod_symbolic.png)
+
+```bash
+chmod 744 australia
+chmod 711 play
+chmod 544 my_os
+chmod 664 feathers
+ls -l
+```
+
+---
+
+### 2.4 Анализ файловой системы
+
+#### 2.4.1 Просмотр подключённых файловых систем
+
+![](images/lab07_12_mount.png)
+
+```bash
+mount | head -10
+```
+
+---
+
+#### 2.4.2 Анализ дискового пространства
+
+![](images/lab07_13_df.png)
+
+```bash
+df -h
+```
+
+---
+
+#### 2.4.3 Просмотр /etc/fstab
+
+![](images/lab07_14_fstab.png)
+
+```bash
+cat /etc/fstab
+```
+
+---
+
+## 3. Ответы на вопросы
+
+**Просмотр файлов:**
+- `cat`
+- `less`
+- `head`
+- `tail`
+
+**Команда mv:**
+- Перемещение
+- Переименование
+- Работа с несколькими файлами
+
+**Права доступа:**
+- `r`, `w`, `x`
+- `chmod u+x file`
+- `chmod 755 file`
+
+**drwxr-x--x:**
+- d — каталог  
+- rwx — владелец  
+- r-x — группа  
+- --x — остальные  
+
+**Файловые системы:**
+- ext2/ext3/ext4  
+- xfs  
+- ntfs/fat  
+- tmpfs  
+- proc  
+
+**df:**
+- `df -h` — удобный формат  
+
+**fsck:**
+```bash
+sudo fsck /dev/sda1
+```
+
+---
+
+## 4. Выводы
+
+- Изучена файловая система Linux  
+- Освоены команды (`cp`, `mv`, `mkdir`, `touch`)  
+- Изучен `chmod`  
+- Освоены `mount`, `df`, `fstab`  
+
+Все задачи выполнены.
